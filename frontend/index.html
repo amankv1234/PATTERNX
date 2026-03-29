@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PatternX | Fraud Intelligence Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./src/app.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="custom-cursor-area">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<!-- ===== LANDING PAGE ===== -->
+<div id="page-landing" class="page active">
+  <nav class="glass-nav" id="top-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="/logo.jpeg" alt="PatternX" class="brand-logo" onerror="this.style.display='none'">
+        <span class="brand-name">Pattern<span>X</span></span>
+      </div>
+      <div class="nav-links">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#security">Security</a>
+        <button class="btn-outline-sm" onclick="showPage('login')">Sign In</button>
+        <button class="btn-primary-sm" onclick="showPage('register')">Get Started</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">🚀 Powered by Graph Intelligence v4.0</div>
+      <h1>Detect <span class="text-gradient">Financial Crime</span> Before It Strikes</h1>
+      <p>PatternX uses real-time graph analytics, ML models, and DigiLocker-verified KYC to unmask fraud at the speed of money.</p>
+      <div class="hero-buttons">
+        <button class="btn-cta" onclick="showPage('register')">Start Free Trial</button>
+        <button class="btn-demo" onclick="showPage('dashboard')">&#9654; Live Demo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span>50+</span><em>Banks</em></div>
+        <div class="hstat"><span>₹2T+</span><em>Protected</em></div>
+        <div class="hstat"><span>99.8%</span><em>Accuracy</em></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="graph-orb">
+        <div class="orb-card">
+          <div class="orb-header"><span class="status-dot danger"></span> Live Fraud Alert</div>
+          <div class="orb-alert">Circular transaction detected<br><strong>A102 → B205 → C309 → A102</strong></div>
+          <div class="orb-footer"><span class="risk-chip high">Risk: 94%</span><span>2s ago</span></div>
+        </div>
+        <div class="floating-nodes">
+          <div class="fn fn1"></div>
+          <div class="fn fn2 danger"></div>
+          <div class="fn fn3"></div>
+          <div class="fn fn4"></div>
+          <div class="fn fn5 warning"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="section-label">CAPABILITIES</div>
+    <h2>The <span class="text-gradient">Smartest</span> Fraud Platform</h2>
+    <div class="feature-grid">
+      <div class="feat-card">
+        <div class="feat-icon-wrap"><span class="feat-icon">🕸️</span></div>
+        <h3>Graph Analytics</h3>
+        <p>Visualize complex transaction webs. Detect circular patterns and shell networks instantly.</p>
+      </div>
+      <div class="feat-card highlight-card">
+        <div class="feat-icon-wrap"><span class="feat-icon">🔒</span></div>
+        <h3>KYC + DigiLocker</h3>
+        <p>Bank-grade identity verification using Aadhar, PAN, and India's Digital Document Vault.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-wrap"><span class="feat-icon">⚡</span></div>
+        <h3>Real-time Alerts</h3>
+        <p>Sub-second detection of burst activity, velocity spikes, and layering strategies.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon-wrap"><span class="feat-icon">🎬</span></div>
+        <h3>Fraud Replay</h3>
+        <p>Step through the timeline of a fraud event frame-by-frame for investigation.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== LOGIN PAGE ===== -->
+<div id="page-login" class="page auth-page">
+  <div class="auth-bg"></div>
+  <div class="auth-box">
+    <div class="auth-brand">
+      <img src="/logo.jpeg" alt="PatternX" class="brand-logo sm" onerror="this.style.display='none'">
+      <span class="brand-name dark">Pattern<span>X</span></span>
+    </div>
+    <h2>Welcome Back</h2>
+    <p class="auth-sub">Access the intelligence layer of banking security</p>
+    <form class="auth-form" onsubmit="event.preventDefault(); showPage('dashboard')">
+      <div class="field-group">
+        <label>Email Address</label>
+        <div class="input-wrap"><span class="iicon">📧</span><input type="email" placeholder="agent@patternx.ai" required></div>
+      </div>
+      <div class="field-group">
+        <label>Password</label>
+        <div class="input-wrap"><span class="iicon">🔑</span><input type="password" placeholder="••••••••" required></div>
+      </div>
+      <button type="submit" class="btn-submit">Sign In →</button>
+    </form>
+    <p class="auth-switch">Don't have an account? <a onclick="showPage('register')">Register</a></p>
+    <a class="back-link" onclick="showPage('landing')">← Back to Homepage</a>
+  </div>
+</div>
+
+<!-- ===== REGISTER PAGE ===== -->
+<div id="page-register" class="page auth-page">
+  <div class="auth-bg"></div>
+  <div class="auth-box wide">
+    <div class="auth-brand">
+      <img src="/logo.jpeg" alt="PatternX" class="brand-logo sm" onerror="this.style.display='none'">
+      <span class="brand-name dark">Pattern<span>X</span></span>
+    </div>
+    <h2>Create Account</h2>
+    <p class="auth-sub">Start securing your financial ecosystem today</p>
+    <form class="auth-form" onsubmit="event.preventDefault(); showPage('kyc-aadhar')">
+      <div class="form-row">
+        <div class="field-group">
+          <label>First Name</label>
+          <div class="input-wrap"><span class="iicon">👤</span><input type="text" placeholder="Rahul" required></div>
+        </div>
+        <div class="field-group">
+          <label>Last Name</label>
+          <div class="input-wrap"><span class="iicon">👤</span><input type="text" placeholder="Sharma" required></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Work Email</label>
+        <div class="input-wrap"><span class="iicon">📧</span><input type="email" placeholder="rahul@sbibank.in" required></div>
+      </div>
+      <div class="field-group">
+        <label>Password</label>
+        <div class="input-wrap"><span class="iicon">🔑</span><input type="password" placeholder="Min 8 characters" required></div>
+      </div>
+      <div class="field-group">
+        <label>Organization</label>
+        <div class="input-wrap"><span class="iicon">🏦</span><input type="text" placeholder="State Bank of India" required></div>
+      </div>
+      <button type="submit" class="btn-submit">Continue to KYC →</button>
+    </form>
+    <p class="auth-switch">Already have an account? <a onclick="showPage('login')">Sign In</a></p>
+    <a class="back-link" onclick="showPage('landing')">← Back to Homepage</a>
+  </div>
+</div>
+
+<!-- ===== KYC AADHAR ===== -->
+<div id="page-kyc-aadhar" class="page kyc-page">
+  <div class="kyc-container">
+    <div class="kyc-sidebar">
+      <div class="kyc-brand">
+        <img src="/logo.jpeg" class="brand-logo sm" onerror="this.style.display='none'">
+        <span class="brand-name">Pattern<span>X</span></span>
+      </div>
+      <div class="kyc-steps">
+        <div class="kyc-step active"><div class="step-num">1</div><div><strong>Aadhar Card</strong><small>UIDAI Verification</small></div></div>
+        <div class="step-connector"></div>
+        <div class="kyc-step pending"><div class="step-num">2</div><div><strong>PAN Card</strong><small>Income Tax Dept</small></div></div>
+        <div class="step-connector"></div>
+        <div class="kyc-step pending"><div class="step-num">3</div><div><strong>DigiLocker</strong><small>Document Vault</small></div></div>
+        <div class="step-connector"></div>
+        <div class="kyc-step pending"><div class="step-num">4</div><div><strong>Selfie KYC</strong><small>Live Face Match</small></div></div>
+      </div>
+      <div class="kyc-secure-badge">🛡️ 256-bit encrypted</div>
+    </div>
+    <div class="kyc-main">
+      <div class="kyc-header">
+        <div class="kyc-progress"><div class="kyc-prog-bar" style="width:25%"></div></div>
+        <span class="kyc-prog-text">Step 1 of 4</span>
+      </div>
+      <div class="kyc-content">
+        <div class="kyc-icon-big">🪪</div>
+        <h2>Aadhar Verification</h2>
+        <p>Enter your 12-digit UIDAI Aadhar number. An OTP will be sent to your registered mobile number.</p>
+        <div class="aadhar-input-row">
+          <input class="aadhar-seg" maxlength="4" placeholder="XXXX" id="a1" oninput="autoTab(this,'a2')">
+          <span class="seg-dash">—</span>
+          <input class="aadhar-seg" maxlength="4" placeholder="XXXX" id="a2" oninput="autoTab(this,'a3')">
+          <span class="seg-dash">—</span>
+          <input class="aadhar-seg" maxlength="4" placeholder="XXXX" id="a3">
+        </div>
+        <div id="otp-section" class="otp-section hidden">
+          <p>OTP sent to ••••••7382. Valid for 5 minutes.</p>
+          <input class="otp-input" maxlength="6" placeholder="Enter 6-digit OTP" id="otp-val">
+        </div>
+        <div class="kyc-actions">
+          <button class="btn-kyc-secondary" onclick="showPage('register')">← Back</button>
+          <button class="btn-kyc-primary" id="aadhar-btn" onclick="handleAadharBtn()">Send OTP</button>
+        </div>
+        <p class="kyc-note">🔒 Your data is encrypted end-to-end and never shared.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KYC PAN ===== -->
+<div id="page-kyc-pan" class="page kyc-page">
+  <div class="kyc-container">
+    <div class="kyc-sidebar">
+      <div class="kyc-brand"><img src="/logo.jpeg" class="brand-logo sm" onerror="this.style.display='none'"><span class="brand-name">Pattern<span>X</span></span></div>
+      <div class="kyc-steps">
+        <div class="kyc-step done"><div class="step-num">✓</div><div><strong>Aadhar Card</strong><small>Verified</small></div></div>
+        <div class="step-connector done"></div>
+        <div class="kyc-step active"><div class="step-num">2</div><div><strong>PAN Card</strong><small>Income Tax Dept</small></div></div>
+        <div class="step-connector"></div>
+        <div class="kyc-step pending"><div class="step-num">3</div><div><strong>DigiLocker</strong><small>Document Vault</small></div></div>
+        <div class="step-connector"></div>
+        <div class="kyc-step pending"><div class="step-num">4</div><div><strong>Selfie KYC</strong><small>Live Face Match</small></div></div>
+      </div>
+      <div class="kyc-secure-badge">🛡️ 256-bit encrypted</div>
+    </div>
+    <div class="kyc-main">
+      <div class="kyc-header">
+        <div class="kyc-progress"><div class="kyc-prog-bar" style="width:50%"></div></div>
+        <span class="kyc-prog-text">Step 2 of 4</span>
+      </div>
+      <div class="kyc-content">
+        <div class="kyc-icon-big">💳</div>
+        <h2>PAN Card Verification</h2>
+        <p>Enter your 10-character Permanent Account Number issued by the Income Tax Department.</p>
+        <div class="field-group" style="max-width:340px;margin:2rem auto">
+          <div class="input-wrap"><span class="iicon">💳</span><input type="text" maxlength="10" placeholder="ABCDE1234F" id="pan-val" style="text-transform:uppercase;letter-spacing:4px;font-size:1.2rem;font-weight:700"></div>
+        </div>
+        <div id="pan-verify-status" class="verify-status hidden">
+          <div class="verify-success">✓ PAN verified — <strong id="pan-name">RAHUL SHARMA</strong> · DOB: 15/06/1992</div>
+        </div>
+        <div class="kyc-actions">
+          <button class="btn-kyc-secondary" onclick="showPage('kyc-aadhar')">← Back</button>
+          <button class="btn-kyc-primary" onclick="verifyPAN()">Verify PAN →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KYC DIGILOCKER ===== -->
+<div id="page-kyc-digilocker" class="page kyc-page">
+  <div class="kyc-container">
+    <div class="kyc-sidebar">
+      <div class="kyc-brand"><img src="/logo.jpeg" class="brand-logo sm" onerror="this.style.display='none'"><span class="brand-name">Pattern<span>X</span></span></div>
+      <div class="kyc-steps">
+        <div class="kyc-step done"><div class="step-num">✓</div><div><strong>Aadhar Card</strong><small>Verified</small></div></div>
+        <div class="step-connector done"></div>
+        <div class="kyc-step done"><div class="step-num">✓</div><div><strong>PAN Card</strong><small>Verified</small></div></div>
+        <div class="step-connector done"></div>
+        <div class="kyc-step active"><div class="step-num">3</div><div><strong>DigiLocker</strong><small>Document Vault</small></div></div>
+        <div class="step-connector"></div>
+        <div class="kyc-step pending"><div class="step-num">4</div><div><strong>Selfie KYC</strong><small>Live Face Match</small></div></div>
+      </div>
+      <div class="kyc-secure-badge">🛡️ 256-bit encrypted</div>
+    </div>
+    <div class="kyc-main">
+      <div class="kyc-header">
+        <div class="kyc-progress"><div class="kyc-prog-bar" style="width:75%"></div></div>
+        <span class="kyc-prog-text">Step 3 of 4</span>
+      </div>
+      <div class="kyc-content">
+        <div class="kyc-icon-big">📁</div>
+        <h2>DigiLocker Integration</h2>
+        <p>Connect your DigiLocker to securely fetch your government-issued documents for verification.</p>
+        <div class="digilocker-card" id="digi-connect-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Digilocker-logo.svg/800px-Digilocker-logo.svg.png" alt="DigiLocker" style="height:44px;object-fit:contain" onerror="this.outerHTML='<span style=font-size:2rem>📁 DigiLocker</span>'">
+          <p>Click below to securely authenticate with your DigiLocker account</p>
+          <button class="btn-digilocker" onclick="connectDigiLocker()">🔗 Connect DigiLocker</button>
+        </div>
+        <div id="digi-success" class="digi-success hidden">
+          <div class="digi-doc"><span>✓</span> Aadhar Card (UIDAI)</div>
+          <div class="digi-doc"><span>✓</span> Driving License</div>
+          <div class="digi-doc"><span>✓</span> Class X Certificate</div>
+        </div>
+        <div class="kyc-actions">
+          <button class="btn-kyc-secondary" onclick="showPage('kyc-pan')">← Back</button>
+          <button class="btn-kyc-primary disabled" id="digi-next-btn">Next Step →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KYC SELFIE ===== -->
+<div id="page-kyc-selfie" class="page kyc-page">
+  <div class="kyc-container">
+    <div class="kyc-sidebar">
+      <div class="kyc-brand"><img src="/logo.jpeg" class="brand-logo sm" onerror="this.style.display='none'"><span class="brand-name">Pattern<span>X</span></span></div>
+      <div class="kyc-steps">
+        <div class="kyc-step done"><div class="step-num">✓</div><div><strong>Aadhar Card</strong><small>Verified</small></div></div>
+        <div class="step-connector done"></div>
+        <div class="kyc-step done"><div class="step-num">✓</div><div><strong>PAN Card</strong><small>Verified</small></div></div>
+        <div class="step-connector done"></div>
+        <div class="kyc-step done"><div class="step-num">✓</div><div><strong>DigiLocker</strong><small>Connected</small></div></div>
+        <div class="step-connector done"></div>
+        <div class="kyc-step active"><div class="step-num">4</div><div><strong>Selfie KYC</strong><small>Live Face Match</small></div></div>
+      </div>
+      <div class="kyc-secure-badge">🛡️ 256-bit encrypted</div>
+    </div>
+    <div class="kyc-main">
+      <div class="kyc-header">
+        <div class="kyc-progress"><div class="kyc-prog-bar" style="width:100%"></div></div>
+        <span class="kyc-prog-text">Step 4 of 4 — Final Step</span>
+      </div>
+      <div class="kyc-content">
+        <div class="selfie-frame">
+          <div class="selfie-placeholder" id="selfie-idle">
+            <span>📷</span>
+            <p>Position your face within the frame</p>
+          </div>
+          <div class="selfie-scan hidden" id="selfie-scanning">
+            <div class="scan-ring"></div>
+          </div>
+          <div class="selfie-done hidden" id="selfie-ok">
+            <span class="selfie-check">✓</span>
+            <p>Face Matched — Identity Confirmed</p>
+          </div>
+        </div>
+        <div class="kyc-actions">
+          <button class="btn-kyc-secondary" onclick="showPage('kyc-digilocker')">← Back</button>
+          <button class="btn-kyc-primary" id="selfie-btn" onclick="takeSelfie()">📸 Capture Selfie</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APP SHELL (Dashboard, Graph, Alerts, Accounts) ===== -->
+<div id="page-dashboard" class="page app-page">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="/logo.jpeg" alt="PatternX" class="brand-logo sm" onerror="this.style.display='none'">
+      <span class="brand-name">Pattern<span>X</span></span>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="nav-item active" data-section="dashboard" onclick="switchSection('dashboard',this)"><span>📊</span> Dashboard</a>
+      <a class="nav-item" data-section="graph" onclick="switchSection('graph',this)"><span>🕸️</span> Graph View</a>
+      <a class="nav-item" data-section="replay" onclick="switchSection('replay',this)"><span>🎬</span> Fraud Replay</a>
+      <a class="nav-item" data-section="alerts" onclick="switchSection('alerts',this)"><span>🔔</span> Alerts <span class="nav-badge">12</span></a>
+      <a class="nav-item" data-section="accounts" onclick="switchSection('accounts',this)"><span>👤</span> Accounts</a>
+    </nav>
+    <div class="sidebar-user">
+      <img src="https://ui-avatars.com/api/?name=Agent+Smith&background=2563EB&color=fff" alt="User" class="user-avatar">
+      <div><span class="user-name">Agent Smith</span><span class="user-role">Chief Investigator</span></div>
+    </div>
+  </aside>
+  <div class="app-body">
+    <header class="app-header">
+      <h1 class="app-title" id="section-title">Dashboard</h1>
+      <div class="header-right">
+        <div class="search-wrap"><span>🔍</span><input type="text" placeholder="Search account, tx, pattern..."></div>
+        <button class="btn-header-notif">🔔<span class="notif-dot"></span></button>
+        <button class="btn-new-inv" onclick="showPage('landing')">🏠 Home</button>
+      </div>
+    </header>
+    <main class="app-content" id="app-content">
+      <!-- Dashboard Section -->
+      <div id="section-dashboard" class="section active">
+        <div class="stats-grid">
+          <div class="stat-tile reveal-up"><div class="st-icon blue">💳</div><div><p class="st-label">Total Transactions</p><h3 class="st-val">48,291</h3><span class="st-trend up">↑ 12.4% vs last month</span></div></div>
+          <div class="stat-tile reveal-up"><div class="st-icon red">⚠️</div><div><p class="st-label">Suspicious Activity</p><h3 class="st-val">1,204</h3><span class="st-trend down">↑ 3.1% vs last month</span></div></div>
+          <div class="stat-tile reveal-up"><div class="st-icon amber">🛡️</div><div><p class="st-label">Fraud Risk Score</p><h3 class="st-val">74<span style="font-size:1rem">/100</span></h3><span class="st-trend down">High Risk Zone</span></div></div>
+          <div class="stat-tile reveal-up"><div class="st-icon green">✅</div><div><p class="st-label">Resolved Cases</p><h3 class="st-val">892</h3><span class="st-trend up">↑ 8.9% vs last month</span></div></div>
+        </div>
+        <div class="charts-row">
+          <div class="chart-card big reveal-up">
+            <div class="chart-header"><h3>Transaction Velocity</h3><div class="chart-legend"><span class="leg safe">●</span> Normal <span class="leg danger">●</span> Suspicious</div></div>
+            <canvas id="velocityChart" height="80"></canvas>
+          </div>
+          <div class="chart-card sm reveal-up">
+            <div class="chart-header"><h3>Risk Distribution</h3></div>
+            <canvas id="riskChart"></canvas>
+          </div>
+        </div>
+        <div class="table-card">
+          <div class="table-header"><h3>🔴 Priority Alerts</h3><button class="btn-view-all">View All</button></div>
+          <table class="data-table">
+            <thead><tr><th>Alert ID</th><th>Account</th><th>Amount</th><th>Pattern Type</th><th>Risk Score</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody id="alerts-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Graph Section -->
+      <div id="section-graph" class="section hidden">
+        <div class="graph-layout">
+          <div class="graph-filter-panel">
+            <h3>Graph Control</h3>
+            <div class="filter-item"><label>Min Transaction Amount</label><input type="range" min="0" max="100" value="20" class="slider" id="amount-filter"></div>
+            <div class="filter-item"><label>Risk Threshold</label><input type="range" min="0" max="100" value="50" class="slider" id="risk-filter"></div>
+            <button class="btn-filter-apply" onclick="renderGraph()">Apply Filters</button>
+            <div class="graph-legend-box">
+              <div class="gl-item"><span class="gl-dot blue"></span> Normal Account</div>
+              <div class="gl-item"><span class="gl-dot red"></span> Flagged Account</div>
+              <div class="gl-item"><span class="gl-dot amber"></span> Under Review</div>
+            </div>
+          </div>
+          <div class="graph-main-area">
+            <div id="network-container"></div>
+            <div class="node-detail-panel" id="node-detail"><h4>Node Inspector</h4><p class="nd-hint">Click any node to inspect</p></div>
+          </div>
+        </div>
+      </div>
+      <!-- Replay Section -->
+      <div id="section-replay" class="section hidden">
+        <div class="replay-container">
+          <div class="replay-top">
+            <div class="replay-info"><h3>🎬 Fraud Journey: Case #FRD-2024-0042</h3><p>Circular layering across 4 accounts · Total: ₹47.3L</p></div>
+            <div class="replay-controls">
+              <button id="replay-play" class="btn-replay-play" onclick="toggleReplay()">▶ Play</button>
+              <button class="btn-outline-sm" style="padding:10px 20px" onclick="resetReplayUI()">↺ Reset</button>
+              <span id="replay-step-label" class="replay-step-label">Step 0/4</span>
+            </div>
+          </div>
+          <div class="replay-timeline">
+            <div class="timeline-node active" id="rt-0"><div class="tn-circle">🏦</div><div class="tn-label">A102<br><small>Origin</small></div></div>
+            <div class="timeline-arrow" id="ta-0">→</div>
+            <div class="timeline-node" id="rt-1"><div class="tn-circle">🏢</div><div class="tn-label">B205<br><small>Shell Co.</small></div></div>
+            <div class="timeline-arrow" id="ta-1">→</div>
+            <div class="timeline-node" id="rt-2"><div class="tn-circle">💼</div><div class="tn-label">C309<br><small>Mule Acc.</small></div></div>
+            <div class="timeline-arrow" id="ta-2">→</div>
+            <div class="timeline-node" id="rt-3"><div class="tn-circle">🔁</div><div class="tn-label">D411<br><small>Return</small></div></div>
+            <div class="timeline-arrow" id="ta-3">↩</div>
+            <div class="timeline-node" id="rt-4"><div class="tn-circle">🏦</div><div class="tn-label">A102<br><small>Complete</small></div></div>
+          </div>
+          <div class="replay-detail" id="replay-detail-box">
+            <p>Press Play to start the fraud journey replay animation.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Alerts Section -->
+      <div id="section-alerts" class="section hidden">
+        <div class="alerts-full">
+          <div class="alert-filters">
+            <button class="af-btn active">All</button>
+            <button class="af-btn">High Risk</button>
+            <button class="af-btn">Pending</button>
+            <button class="af-btn">Resolved</button>
+          </div>
+          <div class="alerts-list" id="full-alerts-list"></div>
+        </div>
+      </div>
+      <!-- Accounts Section -->
+      <div id="section-accounts" class="section hidden">
+        <div class="accounts-grid" id="accounts-grid"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script src="./src/app.js"></script>
+</body>
+</html>
