@@ -496,3 +496,18 @@ window.onload = () => {
   resetReplayUI();
   showPage('landing');
 };
+
+// Expose functions to global scope for HTML onclick handlers
+window.showPage = showPage;
+window.switchSection = switchSection;
+window.investigateAlert = investigateAlert;
+window.renderGraph = renderGraph;
+window.toggleReplay = toggleReplay;
+window.resetReplayUI = resetReplayUI;
+window.connectDigiLocker = connectDigiLocker;
+window.takeSelfie = takeSelfie;
+window.handleAadharBtn = handleAadharBtn;
+window.verifyPAN = verifyPAN;
+window.autoTab = autoTab;
+window.initDashboard = initDashboard;
+window.initLandingAnims = initLandingAnims;
